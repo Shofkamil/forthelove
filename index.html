@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  FOR THE LOVE - single-page fashion & music brand site
+  ----------------------------------------------------------------------------
+  PLACEHOLDER CONVENTION
+    [ REPLACE: ... ]   swap this bracketed text for real copy
+    dashed boxes       drop a real brand asset (logo / image) here
+    HTML comments      note what belongs in a slot
+  Collection items and music tracks are data-driven: edit the arrays at the
+  top of js/main.js. Full inventory in assets/PLACEHOLDERS.md.
+  Palette is locked to red #CC0000 / white #FFFFFF / black #111111 only.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[ REPLACE: BRAND NAME ] — FASHION &amp; MUSIC</title>
+  <meta name="description" content="[ REPLACE: short brand description for search engines ]" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Skip link for keyboard / screen-reader users -->
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <!-- ====================================================================
+       1. STICKY NAVIGATION
+  ===================================================================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+
+      <!-- Brand logo slot — REPLACE with real logo (SVG/PNG). Text shown until then. -->
+      <a class="nav__brand" href="#hero" aria-label="[ REPLACE: BRAND NAME ] home">
+        <span class="asset-slot asset-slot--logo">[ LOGO — REPLACE ]</span>
+      </a>
+
+      <!-- Primary navigation -->
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#collection" class="nav__link">Collection</a>
+        <a href="#music" class="nav__link">Music</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </nav>
+
+      <!-- Utility cluster: search + likes -->
+      <div class="nav__utils">
+        <button class="nav__icon" id="searchToggle" aria-expanded="false" aria-controls="searchPanel" aria-label="Toggle search">
+          <span aria-hidden="true">⌕</span>
+        </button>
+        <span class="nav__likes" id="likesCounter" aria-live="polite">♡ Likes (0)</span>
+        <button class="nav__icon nav__icon--menu" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+          <span aria-hidden="true">≡</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search panel (collapses by default) -->
+    <div class="search" id="searchPanel" hidden>
+      <div class="search__inner">
+        <span class="search__prefix" aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="searchInput"
+          class="search__input"
+          placeholder="Search collection &amp; music…"
+          aria-label="Search collection and music"
+          autocomplete="off"
+        />
+        <span class="search__hint" id="searchHint"></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================================================================
+         2. FULL-WIDTH HERO
+    =================================================================== -->
+    <section class="hero" id="hero">
+      <!-- Hero asset slot — REPLACE with full-bleed campaign image/video -->
+      <div class="hero__media asset-slot asset-slot--hero" aria-hidden="true">
+        [ HERO IMAGE — REPLACE ]
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow">[ REPLACE: SEASON / DROP 001 ]</p>
+        <h1 class="hero__title">[ REPLACE:<br />BRAND<br />NAME ]</h1>
+        <p class="hero__tagline">[ REPLACE: ONE-LINE BRAND TAGLINE ]</p>
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#collection" data-bird>View Collection</a>
+          <a class="btn btn--ghost" href="#music" data-bird>Listen</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">Scroll ↓</div>
+    </section>
+
+    <!-- ==================================================================
+         3. FASHION / COLLECTION GRID
+    =================================================================== -->
+    <section class="section" id="collection">
+      <div class="section__head">
+        <h2 class="section__title">Collection</h2>
+        <p class="section__note">[ REPLACE: short collection line — e.g. "Drop 001 / Limited" ]</p>
+      </div>
+
+      <!-- Cards injected from the COLLECTION array in js/main.js -->
+      <div class="grid" id="collectionGrid" aria-label="Collection items"></div>
+
+      <p class="empty-state" id="collectionEmpty" hidden>No results.</p>
+    </section>
+
+    <!-- ==================================================================
+         4. MUSIC TRACKLIST  (dark accent section)
+    =================================================================== -->
+    <section class="section section--dark" id="music">
+      <div class="section__head">
+        <h2 class="section__title">Music</h2>
+        <p class="section__note">
+          Now playing — <span class="accent">[ REPLACE: TRACK / RELEASE ]</span>
+        </p>
+      </div>
+
+      <!-- Rows injected from the TRACKS array in js/main.js -->
+      <ol class="tracklist" id="tracklist" aria-label="Tracklist"></ol>
+
+      <p class="empty-state" id="musicEmpty" hidden>No results.</p>
+    </section>
+
+    <!-- ==================================================================
+         5. ABOUT
+    =================================================================== -->
+    <section class="section" id="about">
+      <div class="about">
+        <div class="about__text">
+          <h2 class="section__title">About</h2>
+          <p class="about__lead">[ REPLACE: 2–3 sentence brand statement. Keep it short and bold. ]</p>
+          <div class="about__stats">
+            <div class="stat">
+              <span class="stat__num">[ 00 ]</span>
+              <span class="stat__label">[ REPLACE: DROPS ]</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">[ 0M ]</span>
+              <span class="stat__label">[ REPLACE: STREAMS ]</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">[ 00 ]</span>
+              <span class="stat__label">[ REPLACE: CITIES ]</span>
+            </div>
+          </div>
+        </div>
+        <!-- About asset slot — REPLACE with brand / founder portrait -->
+        <div class="about__media asset-slot asset-slot--about" aria-hidden="true">
+          [ IMAGE — REPLACE ]
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         6. CONTACT
+    =================================================================== -->
+    <section class="section" id="contact">
+      <div class="section__head">
+        <h2 class="section__title">Contact</h2>
+        <p class="section__note">[ REPLACE: line about reaching out / wholesale / press ]</p>
+      </div>
+
+      <div class="contact">
+        <!-- DEMO ONLY: this form does not send anywhere. Wire to a backend / form service. -->
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cName">Name</label>
+            <input type="text" id="cName" name="name" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="cEmail">Email</label>
+            <input type="email" id="cEmail" name="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="cMessage">Message</label>
+            <textarea id="cMessage" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--solid btn--block" data-bird>Send</button>
+          <p class="contact__status" id="contactStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact__info">
+          <div class="contact__block">
+            <span class="contact__label">Email</span>
+            <span class="contact__value">[ REPLACE: hello@brand.com ]</span>
+          </div>
+          <div class="contact__block">
+            <span class="contact__label">Press</span>
+            <span class="contact__value">[ REPLACE: press@brand.com ]</span>
+          </div>
+          <div class="contact__block">
+            <span class="contact__label">Social</span>
+            <span class="contact__value">[ REPLACE: @handle ]</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       FOOTER  (dark accent)
+  ===================================================================== -->
+  <footer class="footer" id="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="asset-slot asset-slot--logo asset-slot--invert">[ LOGO — REPLACE ]</span>
+        <p class="footer__tag">[ REPLACE: short footer tagline ]</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Footer">
+        <span class="footer__heading">Menu</span>
+        <a href="#collection">Collection</a>
+        <a href="#music">Music</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="footer__col">
+        <span class="footer__heading">Social</span>
+        <a href="#" data-bird>[ INSTAGRAM — REPLACE ]</a>
+        <a href="#" data-bird>[ SPOTIFY — REPLACE ]</a>
+        <a href="#" data-bird>[ YOUTUBE — REPLACE ]</a>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__heading">Newsletter</span>
+        <form class="footer__news" id="newsForm">
+          <input type="email" aria-label="Email for newsletter" placeholder="Email" autocomplete="email" />
+          <button type="submit" class="btn btn--solid btn--sm" data-bird>Join</button>
+        </form>
+        <p class="footer__news-status" id="newsStatus" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year">0000</span> [ REPLACE: BRAND NAME ] — All rights reserved.</span>
+      <span>[ REPLACE: city ] / [ REPLACE: country ]</span>
+    </div>
+  </footer>
+
+  <!-- Bird flourish overlay (purely decorative; filled by js/main.js) -->
+  <div class="bird-layer" id="birdLayer" aria-hidden="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
