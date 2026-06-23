@@ -1,27 +1,42 @@
 # FOR THE LOVE — Fashion &amp; Music Brand Site
 
 A single-page, bold, editorial brand site for a combined **fashion + music**
-label. Built as plain HTML/CSS/JS — no build step, no dependencies, no web
-fonts, no external requests. Designed to be fast, smooth, and minimal.
+label. Written as vanilla HTML/CSS/JS and bundled by **Vite**, with
+**Tailwind CSS v4** wired in via `@tailwindcss/vite`. No web fonts and no
+external runtime requests — Tailwind is compiled at build time. Designed to be
+fast, smooth, and minimal.
 
 > ⚠️ This is a **template skeleton**. All brand content is placeholder. See
 > [`assets/PLACEHOLDERS.md`](assets/PLACEHOLDERS.md) for the full replace list.
 
-## View it
+## Develop
 
-Just open `index.html` in a browser, or serve it locally:
+Install dependencies once, then start the Vite dev server (hot reload):
 
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+npm install
+npm run dev        # http://localhost:5173
 ```
+
+Build a production bundle into `dist/` (Tailwind is compiled here and unused
+utilities are stripped), then preview that build:
+
+```bash
+npm run build
+npm run preview
+```
+
+> The JS now loads as an ES module and the CSS is compiled by Vite, so opening
+> `index.html` directly from the filesystem no longer works — use the dev
+> server or the previewed build.
 
 ## Structure
 
 ```
-index.html            # all sections, in order
-css/styles.css        # design tokens + styling (palette locked here)
+index.html            # all sections, in order; Vite entry
+css/styles.css        # @import "tailwindcss" + design tokens (palette locked)
 js/main.js            # rendering, search, likes, bird, nav, demo forms
+vite.config.js        # Vite config + @tailwindcss/vite plugin
 assets/PLACEHOLDERS.md# inventory of every replaceable slot
 ```
 
@@ -59,6 +74,10 @@ assets/PLACEHOLDERS.md# inventory of every replaceable slot
   Helvetica/Arial stack.
 - **Minimal:** little copy, no decorative clutter, transform/opacity-only
   animations.
+- **Tailwind:** utilities are available, but the rules in `css/styles.css` are
+  unlayered and intentionally win over Tailwind's base/preflight. Honor the
+  palette lock — prefer the `--red`/`--white`/`--black` tokens over off-palette
+  Tailwind color utilities.
 
 ## Not included (intentionally)
 
