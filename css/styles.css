@@ -8,6 +8,11 @@
    Typography: system Helvetica/Arial, uppercase, tight tracking, heavy weight.
 ============================================================================ */
 
+/* Tailwind v4 (processed by @tailwindcss/vite). Its base/preflight lives in
+   @layer base; everything below is unlayered and therefore keeps precedence,
+   so the locked palette and hand-tuned design are preserved. */
+@import "tailwindcss";
+
 :root {
   --red:   #CC0000;
   --white: #FFFFFF;
